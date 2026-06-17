@@ -47,8 +47,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-white/50 mb-1">Email</h4>
-                    <a href="mailto:hello@example.com" className="text-lg font-medium hover:text-primary transition-colors">
-                      hello@example.com
+                    <a href="mailto:gurjaradarsh2@gmail.com" className="text-lg font-medium hover:text-primary transition-colors">
+                      gurjaradarsh2@gmail.com
                     </a>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-white/50 mb-1">Location</h4>
-                    <p className="text-lg font-medium">City, Country</p>
+                    <p className="text-lg font-medium">Indore, India</p>
                   </div>
                 </div>
               </div>
@@ -67,10 +67,10 @@ export function Contact() {
               <div className="mt-12 pt-8 border-t border-white/10">
                 <h4 className="text-sm font-medium text-white/50 mb-4">Follow Me</h4>
                 <div className="flex items-center gap-4">
-                  <a href="#" className="w-12 h-12 rounded-full bg-white/5 hover:bg-primary text-white flex items-center justify-center transition-all hover:scale-110">
+                  <a href="https://github.com/gurjaradarsh2-hue" target="_blank" rel="noopener noreferrer" title="GitHub" className="w-12 h-12 rounded-full bg-white/5 hover:bg-primary text-white flex items-center justify-center transition-all hover:scale-110 shadow-lg hover:shadow-primary/50">
                     <FaGithub size={20} />
                   </a>
-                  <a href="#" className="w-12 h-12 rounded-full bg-white/5 hover:bg-primary text-white flex items-center justify-center transition-all hover:scale-110">
+                  <a href="https://www.linkedin.com/in/adarsh-pratap-singh-gurjar-81962a244" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="w-12 h-12 rounded-full bg-white/5 hover:bg-primary text-white flex items-center justify-center transition-all hover:scale-110 shadow-lg hover:shadow-primary/50">
                     <FaLinkedin size={20} />
                   </a>
                 </div>
@@ -97,7 +97,7 @@ export function Contact() {
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder-white/30"
-                  placeholder="John Doe"
+                  placeholder="XYZ"
                 />
               </div>
 
@@ -112,7 +112,7 @@ export function Contact() {
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder-white/30"
-                  placeholder="john@example.com"
+                  placeholder="xyz@mail.com"
                 />
               </div>
 
@@ -127,7 +127,7 @@ export function Contact() {
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white placeholder-white/30 resize-none"
-                  placeholder="How can I help you?"
+                  placeholder="Write your message here..."
                 />
               </div>
 

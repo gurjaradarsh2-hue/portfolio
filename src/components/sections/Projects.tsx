@@ -1,124 +1,151 @@
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { SiReact, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss, SiPython, SiPandas, SiNumpy, SiScikitlearn, SiStreamlit } from 'react-icons/si';
+import { Brain } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory, secure payments, and an intuitive admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: '#',
-    demo: '#'
+    title: 'RainScope – Rooftop Rainwater Harvesting Assessment & Recharge Platform',
+    category: 'Full Stack Project',
+    categoryColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+    description: 'RainScope is a web-based platform designed to assess rooftop rainwater harvesting potential and artificial groundwater recharge opportunities. The application calculates harvestable rainwater based on roof area, location, and rainfall data, while providing recommendations for sustainable water conservation and recharge structures. It helps users make informed decisions about water management through an intuitive and responsive interface.',
+    tags: [
+      { name: 'React', icon: <SiReact size={16} /> },
+      { name: 'JavaScript', icon: <SiJavascript size={16} /> },
+      { name: 'Node.js', icon: <SiNodedotjs size={16} /> },
+      { name: 'Express.js', icon: <SiExpress size={16} /> },
+      { name: 'MongoDB', icon: <SiMongodb size={16} /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss size={16} /> }
+    ],
+    github: '',
+    demo: 'https://rain-scope-gold.vercel.app/home',
+    status: 'Completed'
   },
   {
-    title: 'AI Task Manager',
-    description: 'Smart task management app that uses machine learning to prioritize and categorize your daily workflows.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    tags: ['TypeScript', 'Next.js', 'OpenAI', 'Tailwind'],
-    github: '#',
-    demo: '#'
+    title: 'Student Marks Prediction System',
+    category: 'Machine Learning',
+    categoryColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+    description: 'A Machine Learning application that predicts student academic performance based on various educational and behavioral factors. The model analyzes input parameters and provides estimated marks, helping educators and students understand performance trends and areas for improvement.',
+    tags: [
+      { name: 'Python', icon: <SiPython size={16} /> },
+      { name: 'Pandas', icon: <SiPandas size={16} /> },
+      { name: 'NumPy', icon: <SiNumpy size={16} /> },
+      { name: 'Scikit-learn', icon: <SiScikitlearn size={16} /> },
+      { name: 'Streamlit', icon: <SiStreamlit size={16} /> }
+    ],
+    github: '',
+    demo: 'https://marks-prediction-halo7qzyxt5fmxfzhpikfy.streamlit.app/',
+    status: 'Completed'
   },
   {
-    title: 'Real-time Chat App',
-    description: 'End-to-end encrypted messaging application featuring voice messages, file sharing, and group chats.',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
-    tags: ['React', 'Firebase', 'WebRTC', 'Framer Motion'],
-    github: '#',
-    demo: '#'
+    title: 'Student Exam Success Prediction',
+    category: 'AI/ML',
+    categoryColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    description: 'An AI-powered predictive analytics application that estimates the probability of student success in examinations based on study habits, attendance, preparation levels, and other relevant factors. The project demonstrates practical machine learning techniques for educational decision support.',
+    tags: [
+      { name: 'Python', icon: <SiPython size={16} /> },
+      { name: 'Pandas', icon: <SiPandas size={16} /> },
+      { name: 'Scikit-learn', icon: <SiScikitlearn size={16} /> },
+      { name: 'Streamlit', icon: <SiStreamlit size={16} /> },
+      { name: 'Machine Learning', icon: <Brain size={16} /> }
+    ],
+    github: '',
+    demo: 'https://student-stress-6r3dqufwrpfxqmskwavthg.streamlit.app/',
+    status: 'Completed'
   }
 ];
 
 export function Projects() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    const images = gsap.utils.toArray('.project-image');
-    images.forEach((img: any) => {
-      gsap.to(img, {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: img.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-    });
-  }, { scope: containerRef });
-
   return (
-    <section id="projects" className="py-24 relative" ref={containerRef}>
+    <section id="projects" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            A selection of my recent work, showcasing both frontend aesthetics and backend complexity.
+          <p className="text-white/60 text-lg max-w-3xl mx-auto">
+            Selected projects showcasing my expertise in Full-Stack Development, Artificial Intelligence, Machine Learning, and modern software solutions.
           </p>
         </div>
 
-        <div className="space-y-32">
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
-              >
-                {/* Image */}
-                <div className="w-full md:w-1/2 relative group rounded-2xl overflow-hidden aspect-video">
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500 z-10" />
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-image w-full h-[120%] -top-[10%] object-cover absolute transition-transform duration-700"
-                  />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="glass p-8 rounded-2xl md:rounded-3xl relative overflow-hidden group flex flex-col h-full hover:-translate-y-2 transition-all duration-300 shadow-xl hover:shadow-primary/20 border border-white/5"
+            >
+              {/* Subtle Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Badges */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6 relative z-10">
+                <span className={`px-4 py-1.5 rounded-full text-xs font-semibold border ${project.categoryColor} backdrop-blur-sm`}>
+                  {project.category}
+                </span>
+                <span className="flex items-center gap-1.5 text-green-400 text-xs font-medium px-3 py-1.5 rounded-full bg-green-400/10 border border-green-400/20">
+                  <CheckCircle2 size={14} />
+                  {project.status}
+                </span>
+              </div>
 
-                {/* Content */}
-                <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-start text-left' : 'md:items-end md:text-right'}`}>
-                  <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-                  <div className="glass p-6 rounded-xl mb-6 relative z-20 w-full md:w-[110%] md:-ml-[5%]">
-                    <p className="text-white/80 leading-relaxed text-left">
-                      {project.description}
-                    </p>
-                  </div>
-                  
-                  <div className={`flex flex-wrap gap-3 mb-8 ${!isEven && 'md:justify-end'}`}>
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-primary text-sm font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-6">
-                    <a href={project.github} className="text-white/70 hover:text-white transition-colors flex items-center gap-2">
-                      <FaGithub size={20} />
-                      <span>Code</span>
-                    </a>
-                    <a href={project.demo} className="text-white/70 hover:text-white transition-colors flex items-center gap-2">
-                      <ExternalLink size={20} />
-                      <span>Live Demo</span>
-                    </a>
-                  </div>
+              {/* Title & Description */}
+              <div className="relative z-10 flex-grow mb-8">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-white/70 leading-relaxed text-[15px] lg:text-base line-clamp-4">
+                  {project.description}
+                </p>
+              </div>
+              
+              {/* Tech Stack */}
+              <div className="relative z-10 mb-8">
+                <div className="flex flex-wrap gap-2.5">
+                  {project.tags.map(tag => (
+                    <span 
+                      key={tag.name} 
+                      className="text-white/80 bg-white/5 px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 flex items-center gap-2 hover:bg-primary/20 hover:border-primary/40 hover:text-white transition-colors"
+                      title={tag.name}
+                    >
+                      {tag.icon}
+                      {tag.name}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4 relative z-10 mt-auto pt-6 border-t border-white/10">
+                {project.github && (
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex justify-center items-center gap-2 bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-xl border border-white/10 hover:border-white/20 transition-all font-medium text-sm text-white/90"
+                  >
+                    <FaGithub size={18} />
+                    <span>Source Code</span>
+                  </a>
+                )}
+                {project.demo && (
+                  <a 
+                    href={project.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex justify-center items-center gap-2 bg-primary/20 hover:bg-primary/30 px-4 py-2.5 rounded-xl border border-primary/30 hover:border-primary/50 transition-all font-medium text-sm text-white"
+                  >
+                    <ExternalLink size={18} />
+                    <span>Visit Project</span>
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

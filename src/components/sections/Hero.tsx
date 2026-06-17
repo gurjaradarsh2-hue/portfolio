@@ -62,7 +62,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block py-1 px-3 rounded-full glass text-sm text-primary mb-6">
-            B.Tech CSIT Student
+            Full Stack Developer
           </span>
         </motion.div>
 
