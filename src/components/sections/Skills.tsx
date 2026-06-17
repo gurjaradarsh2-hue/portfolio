@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { SiCplusplus, SiJavascript, SiReact, SiMongodb, SiMysql, SiGooglecloud } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { Brain, Cloud, BarChart, Lightbulb, Database } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 interface SkillItem {
   name: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   link?: string;
   color?: string;
 }
